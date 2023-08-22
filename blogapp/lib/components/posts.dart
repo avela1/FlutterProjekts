@@ -72,7 +72,13 @@ class _PostState extends State<Post> {
               const SizedBox(
                 height: 10,
               ),
-              Text(widget.message),
+              Wrap(children: [
+                Text(
+                  widget.message,
+                  overflow: TextOverflow.clip,
+                  softWrap: true,
+                ),
+              ]),
             ],
           )
         ],
