@@ -1,5 +1,7 @@
+import 'package:blogapp/components/mydrawer.dart';
 import 'package:blogapp/components/mytextfield.dart';
 import 'package:blogapp/components/posts.dart';
+import 'package:blogapp/pages/profile_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +17,6 @@ class _HomePageState extends State<HomePage> {
   final textController = TextEditingController();
 
   final currentUser = FirebaseAuth.instance.currentUser!;
-
-  void signout() {
-    FirebaseAuth.instance.signOut();
-  }
 
   Future<void> postMessage() async {
     if (textController.text.isNotEmpty) {
@@ -41,11 +39,23 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void signout() {
+    FirebaseAuth.instance.signOut();
+  }
+
+  void goToProfilePage() {
+    Navigator.pop(context);
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ProfilePage()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.grey[300],
+        drawer: MyDrawer(profileTap: goToProfilePage, signOut: signout),
         appBar: AppBar(
+          iconTheme: const IconThemeData(color: Colors.white),
           title: const Center(
             child: Text(
               'The WALL',
@@ -57,15 +67,6 @@ class _HomePageState extends State<HomePage> {
           ),
           backgroundColor: Colors.grey[900],
           elevation: 0,
-          actions: [
-            IconButton(
-              icon: const Icon(
-                Icons.logout,
-                color: Colors.white,
-              ),
-              onPressed: signout,
-            ),
-          ],
         ),
         body: Center(
           child: Column(
@@ -86,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                               message: posts['Message'],
                               userEmail: posts['UserEmail'],
                               postID: posts.id,
-                              likes: List<String>.from(posts['Likes']??[]));
+                              likes: List<String>.from(posts['Likes'] ?? []));
                         });
                   } else if (snapshot.hasError) {
                     return Center(
@@ -107,6 +108,7 @@ class _HomePageState extends State<HomePage> {
                         controller: textController,
                         hintText: 'Text Here',
                         obscureText: false,
+                        
                       ),
                     ),
                     IconButton(
