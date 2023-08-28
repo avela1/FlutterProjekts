@@ -51,7 +51,8 @@ class _PostState extends State<Post> {
       margin: const EdgeInsets.only(left: 25, right: 25, top: 25),
       padding: const EdgeInsets.all(25),
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(10)),
+          color: Theme.of(context).colorScheme.primary,
+          borderRadius: BorderRadius.circular(10)),
       child: Row(
         children: [
           LikeButton(

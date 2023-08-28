@@ -52,21 +52,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Theme.of(context).colorScheme.background,
         drawer: MyDrawer(profileTap: goToProfilePage, signOut: signout),
         appBar: AppBar(
-          iconTheme: const IconThemeData(color: Colors.white),
           title: const Center(
             child: Text(
-              'The WALL',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+              'The Wall',
             ),
           ),
-          backgroundColor: Colors.grey[900],
-          elevation: 0,
         ),
         body: Center(
           child: Column(
@@ -108,14 +101,23 @@ class _HomePageState extends State<HomePage> {
                         controller: textController,
                         hintText: 'Text Here',
                         obscureText: false,
-                        
                       ),
                     ),
-                    IconButton(
-                      onPressed: postMessage,
-                      icon: const Icon(
-                        Icons.arrow_circle_up,
-                        size: 25,
+                    Container(
+                      margin: const EdgeInsets.only(
+                        left: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                      padding: const EdgeInsets.all(2),
+                      child: IconButton(
+                        onPressed: postMessage,
+                        icon: const Icon(
+                          Icons.arrow_circle_up,
+                          size: 25,
+                        ),
                       ),
                     ),
                   ],
