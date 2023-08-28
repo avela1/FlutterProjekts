@@ -48,6 +48,7 @@ class _RegisterPageState extends State<RegisterPage> {
       });
       if (context.mounted) Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
+      // ignore: use_build_context_synchronously
       Navigator.pop(context);
       displayMessage(e.code);
     }
