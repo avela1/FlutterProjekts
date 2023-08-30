@@ -8,6 +8,7 @@ class AppRouter {
     switch (settings.name) {
       case '/':
         return HomePage.route();
+      // ignore: unreachable_switch_case
       case HomePage.routeName:
         return HomePage.route();
       case LoginPage.routeName:
