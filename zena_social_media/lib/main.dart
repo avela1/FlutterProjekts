@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zena_social_media/config/app_router.dart';
-import 'package:zena_social_media/pages/home_page.dart';
+import 'package:zena_social_media/constants/const_exports.dart';
+import 'package:zena_social_media/pages/page_exports.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,13 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: Themes.lightTheme,
+      darkTheme: Themes.darkTheme,
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: HomePage.routeName,
+      initialRoute: LoginPage.routeName,
     );
   }
 }
