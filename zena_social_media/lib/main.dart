@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:zena_social_media/config/app_router.dart';
-import 'package:zena_social_media/constants/const_exports.dart';
-import 'package:zena_social_media/pages/page_exports.dart';
+import 'package:zena_social_media/constants/export_constants.dart';
+import 'package:zena_social_media/pages/export_pages.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyApp()); 
 }
 
 class MyApp extends StatelessWidget {

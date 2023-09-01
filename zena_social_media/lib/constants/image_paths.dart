@@ -1,5 +1,7 @@
 // logo image path
 const String logo1 = "assets/logo/logo_wob.png";
+const String logo2 = "assets/logo/logo_wb.png";
+const String googleLogo = "assets/logo/google_logo.png";
 
 //user image path
 const String profile1 = "assets/images/profile-1.jpg";

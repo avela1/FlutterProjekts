@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zena_social_media/pages/page_exports.dart';
+import 'package:zena_social_media/pages/export_pages.dart';
 
 class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
