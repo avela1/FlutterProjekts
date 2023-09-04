@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zena_social_media/components/export_components.dart';
 import 'package:zena_social_media/constants/export_constants.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
   static const String routeName = '/login_page';
 
@@ -14,9 +14,23 @@ class LoginPage extends StatelessWidget {
   }
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  late bool _isPasswordVisible;
+
+  @override
+  void initState() {
+    super.initState();
+    _isPasswordVisible = true;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+
     final unameController = TextEditingController();
+    final passwordController = TextEditingController();
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
@@ -27,21 +41,11 @@ class LoginPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
-                  child: Image(
-                    image: const AssetImage(googleLogo),
-                    height: size.height * 0.1,
-                  ),
+                const HeaderLogo(
+                  title: 'Wellcome Back,',
+                  subtitle: 'Thank you for choosing us, Have a fun!',
+                  imagePath: googleLogo,
                 ),
-                const SizedBox(
-                  height: defaultPadding,
-                ),
-                Text(
-                  'Wellcome Back,',
-                  style: Theme.of(context).textTheme.displayMedium,
-                ),
-                Text('Thank you for choosing us, Have a fun!',
-                    style: Theme.of(context).textTheme.headlineMedium),
                 MyTextfield(
                   controller: unameController,
                   hintText: 'Email or Phone number',
@@ -49,18 +53,28 @@ class LoginPage extends StatelessWidget {
                   icon: Icons.people,
                 ),
                 MyTextfield(
-                  controller: unameController,
+                  controller: passwordController,
                   hintText: 'Password',
-                  obscureText: false,
+                  obscureText: _isPasswordVisible,
                   icon: Icons.fingerprint,
+                  showPassword: _isPasswordVisible
+                      ? Icons.visibility
+                      : Icons.visibility_off,
+                  onPressed: () {
+                    setState(() {
+                      _isPasswordVisible = !_isPasswordVisible;
+                    });
+                  },
                 ),
                 const SizedBox(
                   height: buttonHeight - 10,
                 ),
                 Align(
                   alignment: Alignment.centerRight,
-                  child: InkWell(
-                    onTap: () {},
+                  child: TextButton(
+                    onPressed: () {
+                      ForgotPasswordCard.forgorPasswordCard(context);
+                    },
                     child: Text(
                       'Forgot Password?',
                       style: Theme.of(context)
@@ -77,7 +91,7 @@ class LoginPage extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {},
-                    child: const Text('Login'),
+                    child: const Text('LOGIN'),
                   ),
                 ),
                 const SizedBox(
@@ -122,7 +136,8 @@ class LoginPage extends StatelessWidget {
                       style: Theme.of(context).textTheme.headlineMedium,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () => Navigator.pushReplacementNamed(
+                          context, '/register_page'),
                       child: Text(
                         'Register Now!',
                         style: Theme.of(context)

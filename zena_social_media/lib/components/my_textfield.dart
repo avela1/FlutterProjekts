@@ -6,6 +6,9 @@ class MyTextfield extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final IconData icon;
+  final IconData? showPassword;
+  final Function()? onPressed;
+  final double padding;
 
   const MyTextfield({
     super.key,
@@ -13,6 +16,9 @@ class MyTextfield extends StatelessWidget {
     required this.hintText,
     required this.obscureText,
     required this.icon,
+    this.showPassword,
+    this.onPressed,
+    this.padding = buttonHeight,
   });
 
   @override
@@ -22,12 +28,20 @@ class MyTextfield extends StatelessWidget {
       child: TextField(
         obscureText: obscureText,
         decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(padding),
           filled: true,
           hintText: hintText,
           fillColor: Theme.of(context).colorScheme.primary,
           prefixIcon: Icon(
             icon,
             color: Theme.of(context).colorScheme.secondary,
+          ),
+          suffixIcon: IconButton(
+            icon: Icon(
+              showPassword,
+              color: Theme.of(context).colorScheme.secondary,
+            ),
+            onPressed: onPressed,
           ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(

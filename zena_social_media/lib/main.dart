@@ -4,13 +4,13 @@ import 'package:zena_social_media/constants/export_constants.dart';
 import 'package:zena_social_media/pages/export_pages.dart';
 
 void main() {
-  runApp(const MyApp()); 
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  // This widget is the root of your appl0ication.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

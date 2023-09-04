@@ -13,7 +13,12 @@ class AppRouter {
         return HomePage.route();
       case LoginPage.routeName:
         return LoginPage.route();
-
+      case RegisterPage.routeName:
+        return RegisterPage.route();
+      case OTPPage.routeName:
+        return OTPPage.route();
+      case ForgotPaswordPage.routeName:
+        return ForgotPaswordPage.route();
       default:
         return _errorRoute();
     }
