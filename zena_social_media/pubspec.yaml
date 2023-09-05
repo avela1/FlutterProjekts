@@ -39,11 +39,12 @@ dependencies:
   flutter_otp_text_field: ^1.1.1
   firebase_core: ^2.15.1
 
-flutter_native_splash:
-  color: "#f7f6f1"
-  color_dark: "#272727"
-  image: assets/logo/logo_wb.png
-  image_dark: assets/logo/logo_wob.png
+
+# flutter_native_splash:
+#   color: "#f7f6f1"
+#   color_dark: "#272727"
+#   image: assets/logo/logo_wb.png
+#   image_dark: assets/logo/logo_wob.png
 
 dev_dependencies:
   flutter_test:
