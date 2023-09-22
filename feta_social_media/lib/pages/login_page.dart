@@ -19,6 +19,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   late bool _isPasswordVisible;
+  final unameController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   void initState() {
@@ -26,12 +28,40 @@ class _LoginPageState extends State<LoginPage> {
     _isPasswordVisible = true;
   }
 
+  Future<void> singIn() async {
+    // showDialog(
+    //   context: context,
+    //   builder: (context) => const Center(
+    //     child: CircularProgressIndicator(),
+    //   ),
+    // );
+    // try {
+    //   await FirebaseAuth.instance.signInWithEmailAndPassword(
+    //     email: unameController.text,
+    //     password: passwordController.text,
+    //   );
+    //   if (context.mounted) {
+    //     Navigator.pop(context);
+    //   }
+    // } on FirebaseAuthException catch (e) {
+    //   // ignore: use_build_context_synchronously
+    //   Navigator.pop(context);
+    //   displayMessage(e.code);
+    // }
+    Navigator.pushReplacementNamed(context, '/');
+  }
+
+  void displayMessage(String message) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(message),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-
-    final unameController = TextEditingController();
-    final passwordController = TextEditingController();
-
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
@@ -44,7 +74,8 @@ class _LoginPageState extends State<LoginPage> {
                 const HeaderLogo(
                   title: 'Wellcome Back,',
                   subtitle: 'Thank you for choosing us, Have a fun!',
-                  imagePath: googleLogo,
+                  imagePath: logo,
+                  imageColor: colorDanger,
                 ),
                 MyTextfield(
                   controller: unameController,
@@ -90,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: singIn,
                     child: const Text('LOGIN'),
                   ),
                 ),

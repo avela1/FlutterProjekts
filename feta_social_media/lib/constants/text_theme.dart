@@ -4,15 +4,15 @@ import './../constants/export_constants.dart';
 
 class ATextTheme {
   static TextTheme lightTextTheme = TextTheme(
-    displayLarge: GoogleFonts.montserrat(
+    displayLarge: GoogleFonts.akayaKanadaka(
         fontSize: 28.0, fontWeight: FontWeight.bold, color: lTextColor1),
-    displayMedium: GoogleFonts.montserrat(
+    displayMedium: GoogleFonts.akayaKanadaka(
         fontSize: 24.0, fontWeight: FontWeight.w700, color: lTextColor1),
-    displaySmall: GoogleFonts.poppins(
+    displaySmall: GoogleFonts.acme(
         fontSize: 24.0, fontWeight: FontWeight.w700, color: lTextColor2),
-    headlineLarge: GoogleFonts.poppins(
+    headlineLarge: GoogleFonts.acme(
         fontSize: 18.0, fontWeight: FontWeight.w600, color: lTextColor2),
-    headlineMedium: GoogleFonts.poppins(
+    headlineMedium: GoogleFonts.acme(
         fontSize: 16.0, fontWeight: FontWeight.w600, color: darkGrey),
     headlineSmall: GoogleFonts.poppins(
         fontSize: 14.0, fontWeight: FontWeight.w500, color: darkGrey),
@@ -22,15 +22,15 @@ class ATextTheme {
         fontSize: 13.0, fontWeight: FontWeight.normal, color: darkGrey),
   );
   static TextTheme darkTextTheme = TextTheme(
-    displayLarge: GoogleFonts.montserrat(
+    displayLarge: GoogleFonts.akayaKanadaka(
         fontSize: 28.0, fontWeight: FontWeight.bold, color: colorWhite),
-    displayMedium: GoogleFonts.montserrat(
+    displayMedium: GoogleFonts.akayaKanadaka(
         fontSize: 24.0, fontWeight: FontWeight.w700, color: colorWhite),
-    displaySmall: GoogleFonts.poppins(
+    displaySmall: GoogleFonts.acme(
         fontSize: 24.0, fontWeight: FontWeight.w700, color: colorLight),
-    headlineLarge: GoogleFonts.poppins(
+    headlineLarge: GoogleFonts.acme(
         fontSize: 18.0, fontWeight: FontWeight.w600, color: colorLight),
-    headlineMedium: GoogleFonts.poppins(
+    headlineMedium: GoogleFonts.acme(
         fontSize: 16.0, fontWeight: FontWeight.w600, color: darkGrey),
     headlineSmall: GoogleFonts.poppins(
         fontSize: 14.0, fontWeight: FontWeight.w500, color: colorGrey),

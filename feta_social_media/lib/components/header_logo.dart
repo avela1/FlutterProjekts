@@ -1,5 +1,5 @@
+import 'package:feta_social_media/constants/export_constants.dart';
 import 'package:flutter/material.dart';
-import './../constants/sizes.dart';
 
 class HeaderLogo extends StatelessWidget {
   final String title;
@@ -15,9 +15,9 @@ class HeaderLogo extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.imagePath,
-    this.imageHeight = 0.1,
+    this.imageHeight = 0.15,
     this.heightBetween = defaultPadding,
-    this.imageColor,
+    this.imageColor = colorDanger,
     this.textAlign,
     this.crossAxisAlignment = CrossAxisAlignment.start,
   });
@@ -32,11 +32,9 @@ class HeaderLogo extends StatelessWidget {
         Center(
           child: Image(
             image: AssetImage(imagePath),
+            color: imageColor,
             height: size.height * imageHeight,
           ),
-        ),
-        SizedBox(
-          height: heightBetween,
         ),
         Text(
           title,

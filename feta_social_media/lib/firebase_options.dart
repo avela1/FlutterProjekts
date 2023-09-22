@@ -50,20 +50,21 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAHqNx1gTAFCp8tsi-wYdN5tKW3vMydzKg',
-    appId: '1:974448693488:android:76302f2c03ac7bae7ab235',
-    messagingSenderId: '974448693488',
-    projectId: 'social-media-b20dc',
-    storageBucket: 'social-media-b20dc.appspot.com',
+    apiKey: 'AIzaSyAg2Bg3OzDotmYVNMa-XguQ830Brrr1Snw',
+    appId: '1:775832848082:android:aa4b88383f574f26524f0b',
+    messagingSenderId: '775832848082',
+    projectId: 'social-media-app-9e0a2',
+    storageBucket: 'social-media-app-9e0a2.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDHBVMVB1PGPXlf4aviPmrkPfKOvzG2Yj4',
-    appId: '1:974448693488:ios:55b9fee92634423f7ab235',
-    messagingSenderId: '974448693488',
-    projectId: 'social-media-b20dc',
-    storageBucket: 'social-media-b20dc.appspot.com',
-    iosClientId: '974448693488-nkkb8cr7tfsm6jdorfpt2o2kihba5d76.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAqchma6Cwr1Fjz7NWc5aNeRsnjrn8jsk8',
+    appId: '1:775832848082:ios:22816bb6b4a28444524f0b',
+    messagingSenderId: '775832848082',
+    projectId: 'social-media-app-9e0a2',
+    storageBucket: 'social-media-app-9e0a2.appspot.com',
+    iosClientId:
+        '775832848082-peei9187ms75p9jomcrk50a1hcp8ubcm.apps.googleusercontent.com',
     iosBundleId: 'com.example.fetaSocialMedia',
   );
 }

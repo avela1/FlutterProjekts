@@ -22,48 +22,67 @@ class OTPPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.all(defaultPadding),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'CO\nDE'.toUpperCase(),
-                style: Theme.of(context)
-                    .textTheme
-                    .displayLarge!
-                    .copyWith(fontSize: 80.0),
-              ),
-              Text(
-                'Verification'.toUpperCase(),
-                style: Theme.of(context).textTheme.displaySmall,
-              ),
-              const SizedBox(
-                height: defaultPadding,
-              ),
-              Text(
-                'Please enter the verification code sent to ->> test@gmail.com',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
-              const SizedBox(
-                height: defaultPadding,
-              ),
-              OtpTextField(
-                mainAxisAlignment: MainAxisAlignment.center,
-                numberOfFields: 6,
-                fillColor: Theme.of(context).colorScheme.primary,
-                filled: true,
-                textStyle: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                      color: colorBlue,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            padding: const EdgeInsets.all(defaultPadding),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    const Image(
+                      image: AssetImage(logo),
+                      color: colorDanger,
+                      height: 200,
                     ),
-                onSubmit: (code) {},
-              ),
-              const SizedBox(
-                height: defaultPadding,
-              ),
-            ],
+                    Text(
+                      'CO\nDE'.toUpperCase(),
+                      style: Theme.of(context)
+                          .textTheme
+                          .displayLarge!
+                          .copyWith(fontSize: 80.0, color: colorDanger),
+                    ),
+                  ],
+                ),
+                Text(
+                  'Verification'.toUpperCase(),
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
+                const SizedBox(
+                  height: defaultPadding,
+                ),
+                Text(
+                  'Please enter the verification code sent to ->> test@gmail.com',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+                const SizedBox(
+                  height: defaultPadding,
+                ),
+                OtpTextField(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  numberOfFields: 6,
+                  fillColor: Theme.of(context).colorScheme.primary,
+                  filled: true,
+                  textStyle:
+                      Theme.of(context).textTheme.headlineLarge!.copyWith(
+                            color: colorBlue,
+                          ),
+                  onSubmit: (code) {},
+                ),
+                const SizedBox(
+                  height: defaultPadding,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('SUBMIT'),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

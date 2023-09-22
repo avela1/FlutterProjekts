@@ -15,7 +15,7 @@ const colorGrey = Color(0xffd6ccff);
 
 //Assent Color
 
-const colorDanger = Color(0xfffb5151);
+const colorDanger = Color(0xFFff4e01);
 const colorSuccess = Color(0xff51fb51);
 const colorBlue = Color(0xff6b4ce6);
 

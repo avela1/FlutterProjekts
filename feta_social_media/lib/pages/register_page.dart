@@ -43,7 +43,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 const HeaderLogo(
                   title: 'Get On Board,',
                   subtitle: 'Create your profile to star your Journey!',
-                  imagePath: googleLogo,
+                  imagePath: logo,
                 ),
                 MyTextfield(
                   controller: unameController,

@@ -35,13 +35,10 @@ class ForgotPaswordPage extends StatelessWidget {
                   title: "Forgot Password",
                   subtitle:
                       "Please enter email to send a verification code to reset your password",
-                  imagePath: googleLogo,
+                  imagePath: logo,
                   textAlign: TextAlign.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  imageHeight: 0.15,
-                ),
-                const SizedBox(
-                  height: defaultPadding,
+                  imageHeight: 0.2,
                 ),
                 MyTextfield(
                   controller: controller,

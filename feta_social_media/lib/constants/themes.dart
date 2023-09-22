@@ -11,7 +11,7 @@ class Themes {
     colorScheme: const ColorScheme.light(
       background: colorLight,
       primary: colorWhite,
-      secondary: darkGrey,
+      secondary: lTextColor1,
     ),
     elevatedButtonTheme: AButtonTheme.elevatedButtonTheme,
     outlinedButtonTheme: AButtonTheme.lightOutlineButtonTheme,
@@ -25,7 +25,7 @@ class Themes {
     colorScheme: const ColorScheme.dark(
       background: backgroundColor,
       primary: colorDark,
-      secondary: darkGrey,
+      secondary: colorWhite,
     ),
     elevatedButtonTheme: AButtonTheme.elevatedButtonTheme,
     outlinedButtonTheme: AButtonTheme.darkOutlineButtonTheme,

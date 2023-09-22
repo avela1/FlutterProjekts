@@ -32,10 +32,14 @@ class ForgotPasswordCard {
                   Navigator.pushNamed(context, '/forgot_password');
                 },
               ),
-              const PasswordResetMethodCard(
+              PasswordResetMethodCard(
                 icon: Icons.mobile_friendly_rounded,
                 title: "Phone No",
                 description: 'Reset via phone verification',
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/otp_page');
+                },
               )
             ]),
           );
