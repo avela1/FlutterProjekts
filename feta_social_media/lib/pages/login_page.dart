@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(defaultPadding),
+            padding: EdgeInsets.all(Sizes.width20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -97,8 +97,8 @@ class _LoginPageState extends State<LoginPage> {
                     });
                   },
                 ),
-                const SizedBox(
-                  height: buttonHeight - 10,
+                SizedBox(
+                  height: Sizes.height10,
                 ),
                 Align(
                   alignment: Alignment.centerRight,
@@ -115,8 +115,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: buttonHeight,
+                SizedBox(
+                  height: Sizes.width10,
                 ),
                 SizedBox(
                   width: double.infinity,
@@ -125,8 +125,8 @@ class _LoginPageState extends State<LoginPage> {
                     child: const Text('LOGIN'),
                   ),
                 ),
-                const SizedBox(
-                  height: buttonHeight,
+                SizedBox(
+                  height: Sizes.width10,
                 ),
                 Center(
                   child: Text(
@@ -134,8 +134,8 @@ class _LoginPageState extends State<LoginPage> {
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
-                const SizedBox(
-                  height: buttonHeight - 10,
+                SizedBox(
+                  height: Sizes.width10,
                 ),
                 SizedBox(
                   width: double.infinity,
@@ -144,9 +144,9 @@ class _LoginPageState extends State<LoginPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Image(
-                          image: AssetImage(googleLogo),
-                          height: buttonHeight,
+                        Image(
+                          image: const AssetImage(googleLogo),
+                          height: Sizes.width20,
                         ),
                         Text(
                           '   Sigh-In with Google',
@@ -156,8 +156,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: buttonHeight - 10,
+                SizedBox(
+                  height: Sizes.width10,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

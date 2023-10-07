@@ -6,7 +6,6 @@ class HeaderLogo extends StatelessWidget {
   final String subtitle;
   final String imagePath;
   final double imageHeight;
-  final double? heightBetween;
   final Color? imageColor;
   final TextAlign? textAlign;
   final CrossAxisAlignment crossAxisAlignment;
@@ -16,7 +15,6 @@ class HeaderLogo extends StatelessWidget {
     required this.subtitle,
     required this.imagePath,
     this.imageHeight = 0.15,
-    this.heightBetween = defaultPadding,
     this.imageColor = colorDanger,
     this.textAlign,
     this.crossAxisAlignment = CrossAxisAlignment.start,
@@ -24,8 +22,6 @@ class HeaderLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
     return Column(
       crossAxisAlignment: crossAxisAlignment,
       children: [
@@ -33,7 +29,7 @@ class HeaderLogo extends StatelessWidget {
           child: Image(
             image: AssetImage(imagePath),
             color: imageColor,
-            height: size.height * imageHeight,
+            height: Sizes.screenHeight * imageHeight,
           ),
         ),
         Text(

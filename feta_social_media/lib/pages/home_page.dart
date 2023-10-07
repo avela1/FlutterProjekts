@@ -99,9 +99,6 @@ class HomePage extends StatelessWidget {
                     },
                   ),
                 ),
-
-                
-
                 ElevatedButton(
                     onPressed: () => Navigator.of(context)
                         .pushReplacementNamed('/login_page'),

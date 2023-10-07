@@ -8,7 +8,6 @@ class MyTextfield extends StatelessWidget {
   final IconData icon;
   final IconData? showPassword;
   final Function()? onPressed;
-  final double padding;
 
   const MyTextfield({
     super.key,
@@ -18,17 +17,16 @@ class MyTextfield extends StatelessWidget {
     required this.icon,
     this.showPassword,
     this.onPressed,
-    this.padding = buttonHeight,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: buttonHeight),
+      margin: EdgeInsets.only(top: Sizes.width20),
       child: TextField(
         obscureText: obscureText,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(padding),
+          contentPadding: EdgeInsets.all(Sizes.width20),
           filled: true,
           hintText: hintText,
           fillColor: Theme.of(context).colorScheme.primary,

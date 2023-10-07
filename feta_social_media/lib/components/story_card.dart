@@ -12,15 +12,15 @@ class StoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 80,
+      width: Sizes.height80,
       height: double.infinity,
-      margin: const EdgeInsets.only(right: 10),
+      margin: EdgeInsets.only(right: Sizes.width10),
       child: Stack(children: [
         SizedBox(
           height: double.infinity,
           width: double.infinity,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(Sizes.width10),
             child: Image(
               fit: BoxFit.cover,
               image: AssetImage(storyData.stories),
@@ -28,13 +28,13 @@ class StoryCard extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 5,
-          left: 15,
+          top: Sizes.width05,
+          left: Sizes.width15,
           child: CircleAvatar(
-            radius: 23,
+            radius: Sizes.width25,
             backgroundColor: colorWhite,
             child: CircleAvatar(
-              radius: 20,
+              radius: Sizes.width20,
               backgroundImage: AssetImage(storyData.profile),
             ),
           ),
@@ -43,12 +43,12 @@ class StoryCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(Sizes.width10),
               child: Text(
                 storyData.uname,
                 style: Theme.of(context).textTheme.displayLarge!.copyWith(
                       color: colorWhite,
-                      fontSize: 20,
+                      fontSize: Sizes.width20,
                     ),
                 softWrap: true,
                 textAlign: TextAlign.center,

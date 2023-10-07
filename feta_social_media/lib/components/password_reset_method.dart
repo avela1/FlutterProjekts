@@ -19,20 +19,20 @@ class PasswordResetMethodCard extends StatelessWidget {
     return GestureDetector(
         onTap: onTap,
         child: Container(
-          padding: const EdgeInsets.all(buttonHeight),
-          margin: const EdgeInsets.only(top: defaultPadding),
+          padding: EdgeInsets.all(Sizes.width10),
+          margin: EdgeInsets.only(top: Sizes.width20),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(Sizes.width10),
             color: Theme.of(context).colorScheme.primary,
           ),
           child: Row(
             children: [
               Icon(
                 icon,
-                size: 50,
+                size: Sizes.height50,
               ),
-              const SizedBox(
-                width: 10,
+              SizedBox(
+                width: Sizes.width10,
               ),
               Expanded(
                   child: Column(

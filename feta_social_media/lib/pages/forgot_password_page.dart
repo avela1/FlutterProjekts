@@ -45,7 +45,6 @@ class ForgotPaswordPage extends StatelessWidget {
                   hintText: 'Please enter email',
                   obscureText: false,
                   icon: Icons.mail_outline_rounded,
-                  padding: defaultPadding,
                 ),
                 const SizedBox(
                   height: defaultPadding,

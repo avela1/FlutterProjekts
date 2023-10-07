@@ -7,14 +7,15 @@ class ForgotPasswordCard {
     return showModalBottomSheet(
         context: context,
         backgroundColor: Theme.of(context).colorScheme.background,
-        shape: const RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(defaultPadding),
-                topRight: Radius.circular(defaultPadding))),
+                topLeft: Radius.circular(Sizes.width20),
+                topRight: Radius.circular(Sizes.width20))),
         builder: (context) {
           return Container(
-            padding: const EdgeInsets.all(defaultPadding),
-            child: Column(children: [
+            padding: EdgeInsets.all(Sizes.width20),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(
                 'How To Reset your password?',
                 style: Theme.of(context).textTheme.displaySmall,
