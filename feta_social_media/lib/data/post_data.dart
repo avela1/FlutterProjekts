@@ -11,7 +11,8 @@ List<Post> postData = [
     shares: '30',
     views: '400',
     postImg: feed1,
-    message: 'This is newyour having a fun with friends!!',
+    message:
+        "Lorem50 is a term used to describe a paragraph of text that is 50 words long and is often used as a placeholder or filler text in design and development. The most common form of Lorem50 is the Lorem Ipsum text, which is a type of filler text that is commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups1. The Lorem Ipsum text is generated using a Latin text that has been scrambled and modified to create a nonsensical but readable text that can be used as a placeholder. There are many tools available to generate Lorem Ipsum text, including online generators, VS Code tips, and Emmet abbreviations",
   ),
   Post(
     uname: "Abel Birhane",

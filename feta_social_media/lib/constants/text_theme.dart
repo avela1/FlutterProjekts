@@ -13,7 +13,7 @@ class ATextTheme {
     headlineLarge: GoogleFonts.acme(
         fontSize: 18.0, fontWeight: FontWeight.w600, color: lTextColor2),
     headlineMedium: GoogleFonts.acme(
-        fontSize: 16.0, fontWeight: FontWeight.w600, color: darkGrey),
+        fontSize: 16.0, fontWeight: FontWeight.w600, color: lTextColor2),
     headlineSmall: GoogleFonts.poppins(
         fontSize: 14.0, fontWeight: FontWeight.w500, color: darkGrey),
     bodyLarge: GoogleFonts.poppins(
@@ -31,7 +31,7 @@ class ATextTheme {
     headlineLarge: GoogleFonts.acme(
         fontSize: 18.0, fontWeight: FontWeight.w600, color: colorLight),
     headlineMedium: GoogleFonts.acme(
-        fontSize: 16.0, fontWeight: FontWeight.w600, color: darkGrey),
+        fontSize: 16.0, fontWeight: FontWeight.w600, color: colorLight),
     headlineSmall: GoogleFonts.poppins(
         fontSize: 14.0, fontWeight: FontWeight.w500, color: colorGrey),
     bodyLarge: GoogleFonts.poppins(

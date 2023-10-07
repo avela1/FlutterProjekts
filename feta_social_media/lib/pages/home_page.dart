@@ -119,7 +119,7 @@ class HomePage extends StatelessWidget {
                 child: ListView.builder(
                   itemCount: postData.length,
                   itemBuilder: (context, index) {
-                    return Text('data');
+                    return PostCardListViewItem(post: postData[index]);
                   },
                 ),
               ),
