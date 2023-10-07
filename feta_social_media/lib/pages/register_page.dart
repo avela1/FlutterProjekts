@@ -71,8 +71,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   obscureText: _isPasswordVisible,
                   icon: Icons.fingerprint,
                 ),
-                const SizedBox(
-                  height: buttonHeight,
+                SizedBox(
+                  height: Sizes.width20,
                 ),
                 SizedBox(
                   width: double.infinity,
@@ -81,8 +81,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     child: const Text('SIGNUP'),
                   ),
                 ),
-                const SizedBox(
-                  height: buttonHeight,
+                SizedBox(
+                  height: Sizes.width20,
                 ),
                 Center(
                   child: Text(
@@ -90,8 +90,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
-                const SizedBox(
-                  height: buttonHeight - 10,
+                SizedBox(
+                  height: Sizes.width10,
                 ),
                 SizedBox(
                   width: double.infinity,
@@ -112,8 +112,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: buttonHeight - 10,
+                SizedBox(
+                  height: Sizes.width10,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

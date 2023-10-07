@@ -28,7 +28,7 @@ class ForgotPaswordPage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.background,
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(defaultPadding),
+            padding: EdgeInsets.all(Sizes.width30),
             child: Column(
               children: [
                 const HeaderLogo(
@@ -36,9 +36,12 @@ class ForgotPaswordPage extends StatelessWidget {
                   subtitle:
                       "Please enter email to send a verification code to reset your password",
                   imagePath: logo,
-                  textAlign: TextAlign.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  imageHeight: 0.2,
+                  textAlign: TextAlign.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  imageHeight: 0.15,
+                ),
+                SizedBox(
+                  height: Sizes.width10,
                 ),
                 MyTextfield(
                   controller: controller,
@@ -46,8 +49,8 @@ class ForgotPaswordPage extends StatelessWidget {
                   obscureText: false,
                   icon: Icons.mail_outline_rounded,
                 ),
-                const SizedBox(
-                  height: defaultPadding,
+                SizedBox(
+                  height: Sizes.width30,
                 ),
                 SizedBox(
                   width: double.infinity,

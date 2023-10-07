@@ -8,6 +8,7 @@ class MyTextfield extends StatelessWidget {
   final IconData icon;
   final IconData? showPassword;
   final Function()? onPressed;
+  final TextStyle? hintStyle;
 
   const MyTextfield({
     super.key,
@@ -17,6 +18,7 @@ class MyTextfield extends StatelessWidget {
     required this.icon,
     this.showPassword,
     this.onPressed,
+    this.hintStyle,
   });
 
   @override
@@ -29,6 +31,8 @@ class MyTextfield extends StatelessWidget {
           contentPadding: EdgeInsets.all(Sizes.width20),
           filled: true,
           hintText: hintText,
+          hintStyle: hintStyle,
+          
           fillColor: Theme.of(context).colorScheme.primary,
           prefixIcon: Icon(
             icon,

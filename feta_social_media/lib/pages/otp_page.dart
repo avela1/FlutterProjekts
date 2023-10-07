@@ -25,40 +25,42 @@ class OTPPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
-            padding: const EdgeInsets.all(defaultPadding),
+            padding: EdgeInsets.all(Sizes.width30),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Row(
                   children: [
-                    const Image(
-                      image: AssetImage(logo),
+                    Image(
+                      image: const AssetImage(logo),
                       color: colorDanger,
-                      height: 200,
+                      height: Sizes.height200,
                     ),
                     Text(
                       'CO\nDE'.toUpperCase(),
-                      style: Theme.of(context)
-                          .textTheme
-                          .displayLarge!
-                          .copyWith(fontSize: 80.0, color: colorDanger),
+                      style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                          fontSize: Sizes.height80, color: colorDanger),
                     ),
                   ],
                 ),
-                Text(
-                  'Verification'.toUpperCase(),
-                  style: Theme.of(context).textTheme.displaySmall,
+                SizedBox(
+                  height: Sizes.width10,
                 ),
-                const SizedBox(
-                  height: defaultPadding,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Verification'.toUpperCase(),
+                      style: Theme.of(context).textTheme.displaySmall,
+                    ),
+                    Text(
+                      'Please enter the verification code sent to ->> test@gmail.com',
+                      style: Theme.of(context).textTheme.headlineLarge,
+                    ),
+                  ],
                 ),
-                Text(
-                  'Please enter the verification code sent to ->> test@gmail.com',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headlineLarge,
-                ),
-                const SizedBox(
-                  height: defaultPadding,
+                SizedBox(
+                  height: Sizes.width20,
                 ),
                 OtpTextField(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -71,8 +73,8 @@ class OTPPage extends StatelessWidget {
                           ),
                   onSubmit: (code) {},
                 ),
-                const SizedBox(
-                  height: defaultPadding,
+                SizedBox(
+                  height: Sizes.width20,
                 ),
                 SizedBox(
                   width: double.infinity,

@@ -32,6 +32,7 @@ class HeaderLogo extends StatelessWidget {
             height: Sizes.screenHeight * imageHeight,
           ),
         ),
+        SizedBox(height: Sizes.width10),
         Text(
           title,
           style: Theme.of(context).textTheme.displayMedium,
