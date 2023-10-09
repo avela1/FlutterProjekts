@@ -2,7 +2,7 @@ class Post {
   final String uname;
   final String uprofile;
   final String? message;
-  final String? postImg;
+  final List<String>? postImg;
   final DateTime postDate;
   final String likes;
   final String comments;

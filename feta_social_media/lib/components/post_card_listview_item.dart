@@ -1,11 +1,19 @@
 import 'package:feta_social_media/constants/export_constants.dart';
+import 'package:feta_social_media/data/post_data.dart';
 import 'package:feta_social_media/models/post_model.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class PostCardListViewItem extends StatelessWidget {
+class PostCardListViewItem extends StatefulWidget {
   final Post post;
   const PostCardListViewItem({super.key, required this.post});
+
+  @override
+  State<PostCardListViewItem> createState() => _PostCardListViewItemState();
+}
+
+class _PostCardListViewItemState extends State<PostCardListViewItem> {
+  int maxLines = 4;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +35,7 @@ class PostCardListViewItem extends StatelessWidget {
                 Row(
                   children: [
                     CircleAvatar(
-                      backgroundImage: AssetImage(post.uprofile),
+                      backgroundImage: AssetImage(widget.post.uprofile),
                     ),
                     SizedBox(
                       width: Sizes.width10,
@@ -37,11 +45,11 @@ class PostCardListViewItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          post.uname,
+                          widget.post.uname,
                           style: Theme.of(context).textTheme.headlineLarge,
                         ),
                         Text(
-                          post.postDate.toString(),
+                          widget.post.postDate.toString(),
                           style: Theme.of(context).textTheme.bodyLarge,
                         ),
                       ],
@@ -59,25 +67,33 @@ class PostCardListViewItem extends StatelessWidget {
             ),
           ),
           Visibility(
-            visible: post.message!.isNotEmpty,
+            visible: widget.post.message!.isNotEmpty,
             child: Padding(
               padding: EdgeInsets.all(Sizes.width10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    post.message!,
+                    widget.post.message!,
                     style: Theme.of(context).textTheme.headlineSmall,
-                    maxLines: 4,
+                    maxLines: maxLines,
                     overflow: TextOverflow.ellipsis,
                     softWrap: true,
                   ),
                   Visibility(
-                    visible: post.message!.length > 200,
+                    visible: widget.post.message!.length > 200,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          if (maxLines == 4) {
+                            maxLines = 25; // Increase maxLines value
+                          } else {
+                            maxLines = 4; // Reset maxLines value
+                          }
+                        });
+                      },
                       child: Text(
-                        'See more',
+                        maxLines == 4 ? 'See more' : 'See less',
                         style: Theme.of(context)
                             .textTheme
                             .headlineSmall
@@ -89,8 +105,18 @@ class PostCardListViewItem extends StatelessWidget {
               ),
             ),
           ),
-          Image(
-            image: AssetImage(post.postImg!),
+          SizedBox(
+            height: Sizes.height400,
+            width: double.infinity,
+            child: PageView.builder(
+                controller: pageController,
+                itemCount: widget.post.postImg!.length,
+                itemBuilder: (_, index) {
+                  return Image(
+                    fit: BoxFit.cover,
+                    image: AssetImage(widget.post.postImg![index]),
+                  );
+                }),
           ),
           Padding(
             padding: EdgeInsets.all(Sizes.width10),
@@ -150,11 +176,11 @@ class PostCardListViewItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'liked by ${post.uname} and ${post.likes} others',
+                  'liked by ${widget.post.uname} and ${widget.post.likes} others',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 Text(
-                  post.message!,
+                  widget.post.message!,
                   maxLines: 2,
                   softWrap: true,
                   overflow: TextOverflow.ellipsis,
@@ -163,7 +189,7 @@ class PostCardListViewItem extends StatelessWidget {
                 TextButton(
                   onPressed: () {},
                   child: Text(
-                    'View all ${post.comments} comments',
+                    'View all ${widget.post.comments} comments',
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ),

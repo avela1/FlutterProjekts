@@ -42,7 +42,9 @@ class CustomeAppbar extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushReplacementNamed('/login_page');
+                  },
                   icon: Icon(
                     Icons.arrow_circle_up_outlined,
                     size: Sizes.height40,
