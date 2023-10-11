@@ -19,6 +19,8 @@ class AppRouter {
         return OTPPage.route();
       case ForgotPaswordPage.routeName:
         return ForgotPaswordPage.route();
+      case CommentPage.routeName:
+        return CommentPage.route();
       default:
         return _errorRoute();
     }

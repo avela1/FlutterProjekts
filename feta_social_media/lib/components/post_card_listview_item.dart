@@ -1,5 +1,5 @@
+import 'package:feta_social_media/components/export_components.dart';
 import 'package:feta_social_media/constants/export_constants.dart';
-import 'package:feta_social_media/data/post_data.dart';
 import 'package:feta_social_media/models/post_model.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -187,7 +187,9 @@ class _PostCardListViewItemState extends State<PostCardListViewItem> {
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    CommentsCard.commentsCard(context);
+                  },
                   child: Text(
                     'View all ${widget.post.comments} comments',
                     style: Theme.of(context).textTheme.bodySmall,
