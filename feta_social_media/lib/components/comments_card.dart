@@ -23,6 +23,7 @@ class CommentsCard {
           padding: EdgeInsets.all(Sizes.width10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Flexible(

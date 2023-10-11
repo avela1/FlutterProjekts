@@ -1,15 +1,15 @@
-class Story {
+class Comment {
   final String id;
+  final String postId;
   final String userId;
-  final String imageUrl;
+  final String text;
   final DateTime timestamp;
-  bool viewed;
 
-  Story({
+  Comment({
     required this.id,
+    required this.postId,
     required this.userId,
-    required this.imageUrl,
+    required this.text,
     required this.timestamp,
-    this.viewed = false,
   });
 }

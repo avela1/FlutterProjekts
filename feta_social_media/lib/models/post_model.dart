@@ -1,23 +1,19 @@
 class Post {
-  final String uname;
-  final String uprofile;
-  final String? message;
-  final List<String>? postImg;
+  final String id;
+  final String userId;
   final DateTime postDate;
-  final String likes;
-  final String comments;
-  final String shares;
-  final String views;
+  final List<String>? imageUrl;
+  String? caption;
+  int likes;
+  int comments;
 
-  const Post({
-    required this.uname,
-    required this.uprofile,
-    this.message,
-    this.postImg,
+  Post({
+    required this.id,
+    required this.userId,
+    this.imageUrl,
     required this.postDate,
-    required this.likes,
-    required this.comments,
-    required this.shares,
-    required this.views,
+    this.caption = "",
+    this.likes = 0,
+    this.comments = 0,
   });
 }
