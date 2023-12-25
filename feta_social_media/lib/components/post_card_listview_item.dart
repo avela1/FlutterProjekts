@@ -1,6 +1,7 @@
 import 'package:feta_social_media/components/export_components.dart';
 import 'package:feta_social_media/constants/export_constants.dart';
-import 'package:feta_social_media/models/post_model.dart';
+import 'package:feta_social_media/data/user_data.dart';
+import 'package:feta_social_media/models/export_model.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -18,6 +19,10 @@ class _PostCardListViewItemState extends State<PostCardListViewItem> {
   @override
   Widget build(BuildContext context) {
     final pageController = PageController();
+
+    final List<User> filteredUser =
+        usersData.where((element) => element.id == widget.post.id).toList();
+    final User? user = filteredUser.isNotEmpty ? filteredUser.first : null;
     return Container(
       margin: EdgeInsets.only(top: Sizes.width10),
       decoration: BoxDecoration(
@@ -35,7 +40,7 @@ class _PostCardListViewItemState extends State<PostCardListViewItem> {
                 Row(
                   children: [
                     CircleAvatar(
-                      backgroundImage: AssetImage(widget.post.uprofile),
+                      backgroundImage: AssetImage(user!.profileImgUrl),
                     ),
                     SizedBox(
                       width: Sizes.width10,
@@ -45,7 +50,7 @@ class _PostCardListViewItemState extends State<PostCardListViewItem> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          widget.post.uname,
+                          user.fullName,
                           style: Theme.of(context).textTheme.headlineLarge,
                         ),
                         Text(
@@ -67,21 +72,21 @@ class _PostCardListViewItemState extends State<PostCardListViewItem> {
             ),
           ),
           Visibility(
-            visible: widget.post.message!.isNotEmpty,
+            visible: widget.post.caption!.isNotEmpty,
             child: Padding(
               padding: EdgeInsets.all(Sizes.width10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.post.message!,
+                    widget.post.caption!,
                     style: Theme.of(context).textTheme.headlineSmall,
                     maxLines: maxLines,
                     overflow: TextOverflow.ellipsis,
                     softWrap: true,
                   ),
                   Visibility(
-                    visible: widget.post.message!.length > 200,
+                    visible: widget.post.caption!.length > 200,
                     child: TextButton(
                       onPressed: () {
                         setState(() {
@@ -110,11 +115,11 @@ class _PostCardListViewItemState extends State<PostCardListViewItem> {
             width: double.infinity,
             child: PageView.builder(
                 controller: pageController,
-                itemCount: widget.post.postImg!.length,
+                itemCount: widget.post.imageUrl!.length,
                 itemBuilder: (_, index) {
                   return Image(
                     fit: BoxFit.cover,
-                    image: AssetImage(widget.post.postImg![index]),
+                    image: AssetImage(widget.post.imageUrl![index]),
                   );
                 }),
           ),
@@ -176,11 +181,11 @@ class _PostCardListViewItemState extends State<PostCardListViewItem> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'liked by ${widget.post.uname} and ${widget.post.likes} others',
+                  'liked by ${user.fullName} and ${widget.post.likes} others',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 Text(
-                  widget.post.message!,
+                  widget.post.caption!,
                   maxLines: 2,
                   softWrap: true,
                   overflow: TextOverflow.ellipsis,

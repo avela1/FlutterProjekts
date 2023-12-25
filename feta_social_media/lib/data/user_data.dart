@@ -50,4 +50,20 @@ List<User> usersData = [
     profileImgUrl: profile6,
     coverImgUrl: profile16,
   ),
+  User(
+    id: '7',
+    username: 'john_doe',
+    fullName: 'John Doe',
+    email: "jonedoe@gmail.com",
+    profileImgUrl: profile6,
+    coverImgUrl: profile16,
+  ),
+  User(
+    id: '8',
+    username: 'john_doe',
+    fullName: 'John Doe',
+    email: "jonedoe@gmail.com",
+    profileImgUrl: profile6,
+    coverImgUrl: profile16,
+  ),
 ];

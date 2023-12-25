@@ -94,13 +94,11 @@ class HomePage extends StatelessWidget {
                   SizedBox(
                     height: Sizes.width10,
                   ),
-                  Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: postData
-                          .map((e) => PostCardListViewItem(post: e))
-                          .toList(),
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: postData
+                        .map((e) => PostCardListViewItem(post: e))
+                        .toList(),
                   ),
                 ],
               ),

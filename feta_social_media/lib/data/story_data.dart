@@ -38,14 +38,14 @@ List<Story> storyData = [
     viewed: true,
   ),
   Story(
-    id: '5',
+    id: '6',
     userId: '1',
     imageUrl: story5,
     timestamp: DateTime.now(),
     viewed: true,
   ),
   Story(
-    id: '6',
+    id: '7',
     userId: '1',
     imageUrl: story6,
     timestamp: DateTime.now(),

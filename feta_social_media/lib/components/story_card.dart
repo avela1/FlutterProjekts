@@ -1,4 +1,5 @@
 import 'package:feta_social_media/constants/export_constants.dart';
+import 'package:feta_social_media/data/user_data.dart';
 import 'package:feta_social_media/models/export_model.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,13 @@ class StoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<User> filteredUsers = usersData
+        .where(
+          (element) => element.id == storyData.id,
+        )
+        .toList();
+    final User? user = filteredUsers.isNotEmpty ? filteredUsers.first : null;
+
     return Container(
       width: Sizes.height80,
       height: double.infinity,
@@ -23,7 +31,7 @@ class StoryCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(Sizes.width10),
             child: Image(
               fit: BoxFit.cover,
-              image: AssetImage(storyData.stories),
+              image: AssetImage(storyData.imageUrl),
             ),
           ),
         ),
@@ -35,7 +43,7 @@ class StoryCard extends StatelessWidget {
             backgroundColor: colorWhite,
             child: CircleAvatar(
               radius: Sizes.width20,
-              backgroundImage: AssetImage(storyData.profile),
+              backgroundImage: AssetImage(user!.profileImgUrl),
             ),
           ),
         ),
@@ -45,7 +53,7 @@ class StoryCard extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(Sizes.width10),
               child: Text(
-                storyData.uname,
+                user.fullName,
                 style: Theme.of(context).textTheme.displayLarge!.copyWith(
                       color: colorWhite,
                       fontSize: Sizes.width20,
