@@ -26,13 +26,13 @@ class MyTextfield extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: Sizes.width20),
       child: TextField(
+        controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(Sizes.width20),
           filled: true,
           hintText: hintText,
           hintStyle: hintStyle,
-          
           fillColor: Theme.of(context).colorScheme.primary,
           prefixIcon: Icon(
             icon,

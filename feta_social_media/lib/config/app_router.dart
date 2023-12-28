@@ -21,6 +21,8 @@ class AppRouter {
         return ForgotPaswordPage.route();
       case CommentPage.routeName:
         return CommentPage.route();
+      case RegistrationPage.routeName:
+        return RegistrationPage.route();
       default:
         return _errorRoute();
     }

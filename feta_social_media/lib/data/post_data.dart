@@ -14,7 +14,7 @@ List<Post> postData = [
   ),
   Post(
     id: '2',
-    userId: '1',
+    userId: '2',
     postDate: DateTime.now(),
     likes: 1,
     comments: 3,
@@ -24,7 +24,7 @@ List<Post> postData = [
   ),
   Post(
     id: '3',
-    userId: '1',
+    userId: '3',
     postDate: DateTime.now(),
     likes: 1,
     comments: 4,
@@ -42,7 +42,7 @@ List<Post> postData = [
   ),
   Post(
     id: '5',
-    userId: '1',
+    userId: '3',
     postDate: DateTime.now(),
     likes: 1,
     comments: 4,
@@ -51,7 +51,7 @@ List<Post> postData = [
   ),
   Post(
     id: '6',
-    userId: '1',
+    userId: '5',
     postDate: DateTime.now(),
     likes: 1,
     comments: 4,
@@ -60,7 +60,7 @@ List<Post> postData = [
   ),
   Post(
     id: '7',
-    userId: '1',
+    userId: '8',
     postDate: DateTime.now(),
     likes: 1,
     comments: 4,
@@ -69,7 +69,7 @@ List<Post> postData = [
   ),
   Post(
     id: '8',
-    userId: '1',
+    userId: '4',
     postDate: DateTime.now(),
     likes: 1,
     comments: 4,

@@ -1,9 +1,11 @@
-import 'package:feta_social_media/components/my_textfield.dart';
+import 'package:feta_social_media/components/export_components.dart';
 import 'package:feta_social_media/constants/export_constants.dart';
+import 'package:feta_social_media/models/export_model.dart';
 import 'package:flutter/material.dart';
 
 class CommentsCard {
-  static Future<dynamic> commentsCard(BuildContext context) {
+  static Future<dynamic> commentsCard(
+      BuildContext context, List<Comment> comment) {
     final textController = TextEditingController();
     return showModalBottomSheet(
       context: context,
@@ -23,18 +25,13 @@ class CommentsCard {
           padding: EdgeInsets.all(Sizes.width10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Flexible(
-                child: ListView.builder(
-                  controller: controller,
-                  itemCount: 10,
-                  itemBuilder: (context, index) => Container(
-                    margin: const EdgeInsets.only(top: 10),
-                    color: Colors.amber,
-                    height: 50,
-                  ),
+                child: SingleChildScrollView(
+                  child: Column(
+                      children:
+                          comment.map((e) => CommentItem(comment: e)).toList()),
                 ),
               ),
               MyTextfield(

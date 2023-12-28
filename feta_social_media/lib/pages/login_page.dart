@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import './../components/export_components.dart';
 import './../constants/export_constants.dart';
+import './../controllers/export_controllers.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -19,36 +21,20 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   late bool _isPasswordVisible;
-  final unameController = TextEditingController();
-  final passwordController = TextEditingController();
-
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final AuthController _authController = Get.put(AuthController());
   @override
   void initState() {
     super.initState();
     _isPasswordVisible = true;
   }
 
-  Future<void> singIn() async {
-    // showDialog(
-    //   context: context,
-    //   builder: (context) => const Center(
-    //     child: CircularProgressIndicator(),
-    //   ),
-    // );
-    // try {
-    //   await FirebaseAuth.instance.signInWithEmailAndPassword(
-    //     email: unameController.text,
-    //     password: passwordController.text,
-    //   );
-    //   if (context.mounted) {
-    //     Navigator.pop(context);
-    //   }
-    // } on FirebaseAuthException catch (e) {
-    //   // ignore: use_build_context_synchronously
-    //   Navigator.pop(context);
-    //   displayMessage(e.code);
-    // }
-    Navigator.pushReplacementNamed(context, '/');
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
   }
 
   void displayMessage(String message) {
@@ -78,13 +64,13 @@ class _LoginPageState extends State<LoginPage> {
                   imageColor: colorDanger,
                 ),
                 MyTextfield(
-                  controller: unameController,
-                  hintText: 'Email or Phone number',
+                  controller: _emailController,
+                  hintText: 'Email ',
                   obscureText: false,
                   icon: Icons.people,
                 ),
                 MyTextfield(
-                  controller: passwordController,
+                  controller: _passwordController,
                   hintText: 'Password',
                   obscureText: _isPasswordVisible,
                   icon: Icons.fingerprint,
@@ -121,7 +107,11 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: singIn,
+                    onPressed: () => _authController.signInWithEmail(
+                        _emailController.text,
+                        _passwordController.text,
+                        context),
+                    // onPressed: () => singIn(),
                     child: const Text('LOGIN'),
                   ),
                 ),
@@ -140,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () => _authController.signInwithGoogle(context),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -168,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     InkWell(
                       onTap: () => Navigator.pushReplacementNamed(
-                          context, '/register_page'),
+                          context, '/registration_page'),
                       child: Text(
                         'Register Now!',
                         style: Theme.of(context)

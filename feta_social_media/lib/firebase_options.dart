@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,9 +43,18 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDlk7t20OhsbJQZZ3TmaCeg_XLm6uSrf24',
+    appId: '1:775832848082:web:e0ac5dccc562c6df524f0b',
+    messagingSenderId: '775832848082',
+    projectId: 'social-media-app-9e0a2',
+    authDomain: 'social-media-app-9e0a2.firebaseapp.com',
+    storageBucket: 'social-media-app-9e0a2.appspot.com',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAg2Bg3OzDotmYVNMa-XguQ830Brrr1Snw',
-    appId: '1:775832848082:android:aa4b88383f574f26524f0b',
+    appId: '1:775832848082:android:6de59c78b109bcaf524f0b',
     messagingSenderId: '775832848082',
     projectId: 'social-media-app-9e0a2',
     storageBucket: 'social-media-app-9e0a2.appspot.com',
@@ -59,12 +62,20 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAqchma6Cwr1Fjz7NWc5aNeRsnjrn8jsk8',
-    appId: '1:775832848082:ios:22816bb6b4a28444524f0b',
+    appId: '1:775832848082:ios:09bd42ce35c90c02524f0b',
     messagingSenderId: '775832848082',
     projectId: 'social-media-app-9e0a2',
     storageBucket: 'social-media-app-9e0a2.appspot.com',
-    iosClientId:
-        '775832848082-peei9187ms75p9jomcrk50a1hcp8ubcm.apps.googleusercontent.com',
+    iosClientId: '775832848082-peei9187ms75p9jomcrk50a1hcp8ubcm.apps.googleusercontent.com',
     iosBundleId: 'com.example.fetaSocialMedia',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyAqchma6Cwr1Fjz7NWc5aNeRsnjrn8jsk8',
+    appId: '1:775832848082:ios:d67260bf92ff60a0524f0b',
+    messagingSenderId: '775832848082',
+    projectId: 'social-media-app-9e0a2',
+    storageBucket: 'social-media-app-9e0a2.appspot.com',
+    iosBundleId: 'com.example.fetaSocialMedia.RunnerTests',
   );
 }

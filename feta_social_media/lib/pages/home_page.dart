@@ -3,7 +3,6 @@ import 'package:feta_social_media/components/custom_appbar.dart';
 import 'package:feta_social_media/components/export_components.dart';
 import 'package:feta_social_media/constants/export_constants.dart';
 import 'package:feta_social_media/data/export_data.dart';
-import 'package:feta_social_media/data/post_data.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {

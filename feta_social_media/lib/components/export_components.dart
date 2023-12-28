@@ -5,3 +5,4 @@ export 'header_logo.dart';
 export 'story_card.dart';
 export 'post_card_listview_item.dart';
 export 'comments_card.dart';
+export 'comment_item.dart';

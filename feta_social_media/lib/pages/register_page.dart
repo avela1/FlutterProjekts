@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../components/export_components.dart';
 import '../constants/export_constants.dart';
+import '../controllers/export_controllers.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -19,6 +21,10 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   late bool _isPasswordVisible;
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+  final AuthController _authController = Get.put(AuthController());
 
   @override
   void initState() {
@@ -27,10 +33,15 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final unameController = TextEditingController();
-    final passwordController = TextEditingController();
-    final confirmPasswordController = TextEditingController();
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
@@ -46,13 +57,13 @@ class _RegisterPageState extends State<RegisterPage> {
                   imagePath: logo,
                 ),
                 MyTextfield(
-                  controller: unameController,
-                  hintText: 'Email or Phone number',
+                  controller: _emailController,
+                  hintText: 'Email',
                   obscureText: false,
                   icon: Icons.people,
                 ),
                 MyTextfield(
-                  controller: passwordController,
+                  controller: _passwordController,
                   hintText: 'Password',
                   obscureText: _isPasswordVisible,
                   icon: Icons.fingerprint,
@@ -66,7 +77,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   },
                 ),
                 MyTextfield(
-                  controller: confirmPasswordController,
+                  controller: _confirmPasswordController,
                   hintText: 'Confirm Password',
                   obscureText: _isPasswordVisible,
                   icon: Icons.fingerprint,
@@ -77,8 +88,17 @@ class _RegisterPageState extends State<RegisterPage> {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('SIGNUP'),
+                    onPressed: () {
+                      _authController.signUpwithEmail(_emailController.text,
+                          _passwordController.text, context);
+                      // if (_passwordController == _confirmPasswordController) {
+                      //   _authController.signUpwithEmail(_emailController.text,
+                      //       _passwordController.text, context);
+                      // } else {
+                      //   errorMessage('Password is not the same!!');
+                      // }
+                    },
+                    child: const Text('Continue'),
                   ),
                 ),
                 SizedBox(
@@ -96,7 +116,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () => _authController.signInwithGoogle(context),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

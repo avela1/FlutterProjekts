@@ -1,6 +1,6 @@
 import 'package:feta_social_media/components/export_components.dart';
 import 'package:feta_social_media/constants/export_constants.dart';
-import 'package:feta_social_media/data/user_data.dart';
+import 'package:feta_social_media/data/export_data.dart';
 import 'package:feta_social_media/models/export_model.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -21,8 +21,13 @@ class _PostCardListViewItemState extends State<PostCardListViewItem> {
     final pageController = PageController();
 
     final List<User> filteredUser =
-        usersData.where((element) => element.id == widget.post.id).toList();
-    final User? user = filteredUser.isNotEmpty ? filteredUser.first : null;
+        usersData.where((element) => element.id == widget.post.userId).toList();
+    final User? postedUser =
+        filteredUser.isNotEmpty ? filteredUser.first : null;
+    final List<Comment> comments = commmentsData
+        .where((element) => element.postId == widget.post.id)
+        .toList();
+
     return Container(
       margin: EdgeInsets.only(top: Sizes.width10),
       decoration: BoxDecoration(
@@ -40,7 +45,7 @@ class _PostCardListViewItemState extends State<PostCardListViewItem> {
                 Row(
                   children: [
                     CircleAvatar(
-                      backgroundImage: AssetImage(user!.profileImgUrl),
+                      backgroundImage: AssetImage(postedUser!.profileImgUrl),
                     ),
                     SizedBox(
                       width: Sizes.width10,
@@ -50,7 +55,7 @@ class _PostCardListViewItemState extends State<PostCardListViewItem> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          user.fullName,
+                          postedUser.fullName,
                           style: Theme.of(context).textTheme.headlineLarge,
                         ),
                         Text(
@@ -181,7 +186,7 @@ class _PostCardListViewItemState extends State<PostCardListViewItem> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'liked by ${user.fullName} and ${widget.post.likes} others',
+                  'liked by ${postedUser.fullName} and ${widget.post.likes} others',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 Text(
@@ -193,10 +198,10 @@ class _PostCardListViewItemState extends State<PostCardListViewItem> {
                 ),
                 TextButton(
                   onPressed: () {
-                    CommentsCard.commentsCard(context);
+                    CommentsCard.commentsCard(context, comments);
                   },
                   child: Text(
-                    'View all ${widget.post.comments} comments',
+                    'View all: ${widget.post.comments} comments',
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ),

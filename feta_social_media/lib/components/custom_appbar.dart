@@ -1,11 +1,15 @@
 import 'package:feta_social_media/constants/export_constants.dart';
+import 'package:feta_social_media/controllers/export_controllers.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomeAppbar extends StatelessWidget {
   const CustomeAppbar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final AuthController authController = Get.put(AuthController());
+
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primary,
@@ -43,7 +47,7 @@ class CustomeAppbar extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacementNamed('/login_page');
+                    authController.signOut(context);
                   },
                   icon: Icon(
                     Icons.arrow_circle_up_outlined,
