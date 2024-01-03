@@ -5,7 +5,7 @@ class MyTextfield extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final bool obscureText;
-  final IconData icon;
+  final IconData? icon;
   final IconData? showPassword;
   final Function()? onPressed;
   final TextStyle? hintStyle;
@@ -15,7 +15,7 @@ class MyTextfield extends StatelessWidget {
     required this.controller,
     required this.hintText,
     required this.obscureText,
-    required this.icon,
+    this.icon,
     this.showPassword,
     this.onPressed,
     this.hintStyle,
@@ -24,20 +24,24 @@ class MyTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: Sizes.width20),
+      margin: EdgeInsets.only(bottom: Sizes.width20),
       child: TextField(
         controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(Sizes.width20),
           filled: true,
-          hintText: hintText,
-          hintStyle: hintStyle,
+          // hintText: hintText,
+          labelText: hintText,
+          labelStyle: hintStyle,
+          // hintStyle: hintStyle,
           fillColor: Theme.of(context).colorScheme.primary,
-          prefixIcon: Icon(
-            icon,
-            color: Theme.of(context).colorScheme.secondary,
-          ),
+          // prefixIcon: icon != null
+          //     ? Icon(
+          //         icon,
+          //         color: Theme.of(context).colorScheme.secondary,
+          //       )
+          //     : const SizedBox(width: 0, height: 0),
           suffixIcon: IconButton(
             icon: Icon(
               showPassword,

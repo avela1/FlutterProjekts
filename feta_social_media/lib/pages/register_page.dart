@@ -43,6 +43,11 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        iconTheme: Theme.of(context).iconTheme,
+        backgroundColor: Colors.transparent,
+      ),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -53,8 +58,11 @@ class _RegisterPageState extends State<RegisterPage> {
               children: [
                 const HeaderLogo(
                   title: 'Get On Board,',
-                  subtitle: 'Create your profile to star your Journey!',
+                  subtitle: 'You almost done, finish your registration',
                   imagePath: logo,
+                ),
+                SizedBox(
+                  height: Sizes.height15,
                 ),
                 MyTextfield(
                   controller: _emailController,
@@ -89,16 +97,17 @@ class _RegisterPageState extends State<RegisterPage> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      _authController.signUpwithEmail(_emailController.text,
-                          _passwordController.text, context);
+                      // _authController.signUpwithEmail(_emailController.text,
+                      //     _passwordController.text, context);
                       // if (_passwordController == _confirmPasswordController) {
                       //   _authController.signUpwithEmail(_emailController.text,
                       //       _passwordController.text, context);
                       // } else {
                       //   errorMessage('Password is not the same!!');
                       // }
+                      Navigator.of(context).pushReplacementNamed('/otp_page');
                     },
-                    child: const Text('Continue'),
+                    child: const Text('Register'),
                   ),
                 ),
                 SizedBox(

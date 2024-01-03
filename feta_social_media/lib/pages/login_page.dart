@@ -63,6 +63,9 @@ class _LoginPageState extends State<LoginPage> {
                   imagePath: logo,
                   imageColor: colorDanger,
                 ),
+                SizedBox(
+                  height: Sizes.height10,
+                ),
                 MyTextfield(
                   controller: _emailController,
                   hintText: 'Email ',

@@ -79,7 +79,9 @@ class OTPPage extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushReplacementNamed('/');
+                    },
                     child: const Text('SUBMIT'),
                   ),
                 ),
